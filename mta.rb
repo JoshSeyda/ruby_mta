@@ -26,51 +26,7 @@ elsif str0=="stops" && input_length != 2
     puts "Plese provide the correct number of arguments, expecting 2, recieved #{input_length}"
 
 elsif str0=="calculate" && input_length == 5
-    if str1 == "L" 
-        if str2 != "USQ"
-            distance_01 = $l_train.stops.index(str2)
-            puts "#{dist_to_usq = (distance_01 - 2).abs} stop(s) to USQ"
-        elsif str2 == "USQ"
-           puts "#{distance_00 = 0} stops to USQ"
-        end
-    elsif str1 == "6"
-        if str2 != "USQ"
-            distance_01 = $six_train.stops.index(str2)
-            puts "#{dist_to_usq = (distance_01 - 4).abs} stop(s) to USQ"
-        elsif str2 == "USQ"
-            puts "#{distance_00 = 0} stops to USQ"
-        end
-    elsif str1 == "N"
-        if str2 != "USQ"
-            distance_01 = $n_train.stops.index(str2)
-            puts "#{dist_to_usq = (distance_01 - 4).abs} stop(s) to USQ"
-        elsif str2 == "USQ"
-            puts "#{distance_00 = 0} stops to USQ"
-        end
-    end
-    if str3 == "L"
-        if str4 != "USQ"
-            distance_01 = $l_train.stops.index(str4)
-            puts "#{dist_to_usq = (distance_01 - 2).abs} stop(s) to USQ"
-        elsif str4 == "USQ"
-            puts "#{distance_00 = 0} stops to USQ"
-        end
-    elsif str3 == "6"
-        if str4 != "USQ"
-            distance_01 = $six_train.stops.index(str4)
-            puts "#{dist_to_usq = (distance_01 - 4).abs} stop(s) to USQ"
-        elsif str4 == "USQ"
-            puts "#{distance_00 = 0} stops to USQ"
-        end
-    elsif str3 == "N"
-        if str4 != "USQ"
-            distance_01 = $n_train.stops.index(str4)
-            puts "#{dist_to_usq = (distance_01 - 4).abs} stop(s) to USQ"
-        elsif str4 == "USQ"
-            puts "#{distance_00 = 0} stops to USQ"
-        end
-    end
-
+    calculate(str1, str2, str3, str4)
 elsif str0=="calculate" && input_length != 5 
     puts "Plese provide the correct number of arguments, expecting 5, recieved #{input_length}"
 else
