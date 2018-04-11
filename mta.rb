@@ -16,20 +16,25 @@ elsif str0=="lines" && input_length != 1
 
 elsif  str0=="stops" && input_length == 2 
     if str1 == "L"
-        $l_train.stops
+        p $l_train.stops
     elsif str1 == "6"
-        $six_train.stops
+        p $six_train.stops
     elsif str1 == "N"
-        $n_train.stops
+        p $n_train.stops
     elsif str1 == "Q"
-        $q_train.stops
+        p $q_train.stops
+    elsif str1 == "F"
+        p $f_train.stops
     end
 elsif str0=="stops" && input_length != 2 
     puts "Plese provide the correct number of arguments, expecting 2, recieved #{input_length}"
 
 elsif str0=="calculate" && input_length == 5
-    calculate(str1, str2, str3, str4)
-
+    if str1 != "F"
+        calculate(str1, str2, str3, str4)
+    elsif str1 == "F"
+        f_calculate(str1, str2, str3, str4)
+    end
 elsif str0=="calculate" && input_length != 5 
     puts "Plese provide the correct number of arguments, expecting 5, recieved #{input_length}"
 else

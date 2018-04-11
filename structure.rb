@@ -6,13 +6,15 @@ class Mta
     end
 
     def lines
-        @name.each do |key, value| 
-            puts key
+        @name.each do |name, stations| 
+            puts name
         end
     end
 
     def stops
-        @name[:name]
+        @name.each do |name, stations| 
+             stations
+        end
     end
 end
 
@@ -26,66 +28,148 @@ class Line < Mta
 end
 
 def calculate(line_1, stop_1, line_2, stop_2)
+    one_line = line_1.stops.key(stop_1).to_i
+    two_line = line_2.stops.key(stop_2).to_i
     if line_1 == "L"
         line_1 = $l_train
-        if stop_1 != "USQ"
-            dist_to_usq_0 = (line_1.stops.index(stop_1)-2).abs
-        elsif stop_1 == "USQ"
+        if stop_1 != "Union Square"
+            dist_to_usq_0 = (one_line-2).abs
+        elsif stop_1 == "Union Square"
             dist_to_usq_0 = 0 
         end
     elsif line_1 == "6"
         line_1 = $six_train
-        if stop_1 != "USQ"
-            dist_to_usq_0 = (line_1.stops.index(stop_1)-4).abs
-        elsif stop_1 == "USQ"
+        if stop_1 != "Union Square"
+            dist_to_usq_0 = (one_line-4).abs
+        elsif stop_1 == "Union Square"
             dist_to_usq_0 = 0 
         end
     elsif line_1 == "N"
         line_1 = $n_train
-        if stop_1 != "USQ"
-            dist_to_usq_0 = (line_1.stops.index(stop_1)-4).abs
-        elsif stop_1 == "USQ"
+        if stop_1 != "Union Square"
+            dist_to_usq_0 = (one_line-4).abs
+        elsif stop_1 == "Union Square"
             dist_to_usq_0 = 0 
         end
     elsif line_1 == "Q"
         line_1 = $q_train
-        if stop_1 != "USQ"
-            dist_to_usq_0 = (line_1.stops.index(stop_1)-2).abs
-        elsif stop_1 == "USQ"
+        if stop_1 != "Union Square"
+            dist_to_usq_0 = (one_line-2).abs
+        elsif stop_1 == "Union Square"
             dist_to_usq_0 = 0 
         end
     end
 
     if line_2 == "L"
         line_2 = $l_train
-        if stop_2 != "USQ"
-            dist_to_usq_1 = (line_2.stops.index(stop_2)-2).abs
-        elsif stop_2 == "USQ"
+        if stop_2 != "Union Square"
+            dist_to_usq_1 = (two_line-2).abs
+        elsif stop_2 == "Union Square"
             dist_to_usq_1 = 0
         end
     elsif line_2 == "6"
         line_2 = $six_train
-        if stop_2 != "USQ"
-            dist_to_usq_1 = (line_2.stops.index(stop_2)-4).abs
-        elsif stop_2 == "USQ"
+        if stop_2 != "Union Square"
+            dist_to_usq_1 = (two_line-4).abs
+        elsif stop_2 == "Union Square"
             dist_to_usq_1 = 0 
         end
     elsif line_2 == "N"
         line_2 = $n_train
-        if stop_2 != "USQ"
-            dist_to_usq_1 = (line_2.stops.index(stop_2)-4).abs
-        elsif stop_2 == "USQ"
+        if stop_2 != "Union Square"
+            dist_to_usq_1 = (two_line-4).abs
+        elsif stop_2 == "Union Square"
             dist_to_usq_1 = 0 
         end
     elsif line_2 == "Q"
         line_2 = $q_train
-        if stop_2 != "USQ"
-            dist_to_usq_1 = (line_2.stops.index(stop_2)-2).abs
-        elsif stop_2 == "USQ"
+        if stop_2 != "Union Square"
+            dist_to_usq_1 = (two_line-2).abs
+        elsif stop_2 == "Union Square"
             dist_to_usq_1 = 0 
         end
     end
     puts num_of_stops = dist_to_usq_0 += dist_to_usq_1
+end
+
+def f_calculate(line_1, stop_1, line_2, stop_2)
+    one_line = line_1.stops.key(stop_1).to_i
+    two_line = line_2.stops.key(stop_2).to_i    
+    if line_1 == "F"
+        line_1 = $f_train
+        if stop_1 != "Herald Square"
+            dist_to_hsq_0 = (one_line-2).abs
+        elsif stop_1 == "Herald Square"
+            dist_to_hsq_0 = 0 
+        end
+    elsif line_1 == "L"
+    line_1 = $l_train
+    if stop_1 != "Union Square"
+        dist_to_hsq_0 = ((one_line-2).abs + 1)
+    elsif stop_1 == "Union Square"
+        dist_to_hsq_0 = 1 
+    end
+elsif line_1 == "6"
+    line_1 = $six_train
+    if stop_1 != "Union Square"
+        dist_to_hsq_0 = ((one_line-4).abs + 1)
+    elsif stop_1 == "Union Square"
+        dist_to_sq_0 = 1 
+    end
+elsif line_1 == "N"
+    line_1 = $n_train
+    if stop_1 != "Union Square"
+        dist_to_hsq_0 = ((one_line-4).abs + 1)
+    elsif stop_1 == "Union Square"
+        dist_to_hsq_0 = 1 
+    end
+elsif line_1 == "Q"
+    line_1 = $q_train
+    if stop_1 != "Union Square"
+        dist_to_hsq_0 = ((one_line-2).abs + 1)
+    elsif stop_1 == "Union Square"
+        dist_to_hsq_0 = 1 
+    end
+end
+
+if line_2 == "F"
+    line_2 = $f_train
+    if stop_2 != "Herald Square"
+        dist_to_hsq_1 = (two_line-2).abs
+    elsif stop_2 == "Herald Square"
+        dist_to_hsq_1 = 0 
+    end
+elsif line_2 == "L"
+line_2 = $l_train
+if stop_2 != "Union Square"
+    dist_to_hsq_1 = ((two_line-2).abs + 1)
+elsif stop_2 == "Union Square"
+    dist_to_hsq_1 = 1 
+end
+elsif line_2 == "6"
+line_2 = $six_train
+if stop_2 != "Union Square"
+    dist_to_hsq_1 = ((two_line-4).abs + 1)
+elsif stop_2 == "Union Square"
+    dist_to_sq_1 = 1 
+end
+elsif line_2 == "N"
+line_2 = $n_train
+if stop_2 != "Union Square"
+    dist_to_hsq_1 = ((two_line-4).abs +1)
+elsif stop_2 == "Union Square"
+    dist_to_hsq_1 = 1 
+end
+elsif line_2 == "Q"
+line_2 = $q_train
+if stop_2 != "Union Square"
+    dist_to_hsq_1 = ((two_line-2).abs + 1)
+elsif stop_2 == "Union Square"
+    dist_to_hsq_1 = 1 
+end
+end
+puts num_of_stops = dist_to_hsq_0 += dist_to_hsq_1
+
 end
 
 $l_train = Line.new("L", ["8th", "6th", "Union Square", "3rd", "1st"])
@@ -103,6 +187,8 @@ def line_list
     $six_train.lines()
     $n_train.lines()
     $q_train.lines()
+    $f_train.lines()
 end
+
 
 
