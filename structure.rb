@@ -13,7 +13,7 @@ class Mta
 
     def stops
         @name.each do |name, stations| 
-            puts stations
+             stations
         end
     end
 end
@@ -27,6 +27,9 @@ class Line < Mta
 end
 # calculates distance between two stations
 def calculate(line_1, stop_1, line_2, stop_2)
+    # evaluate if trip is only on one line
+    if line_1 == line_2
+    end
     # evaluates first (line, stop) argument
     if line_1 == "L"
         line_1 = $l_train
