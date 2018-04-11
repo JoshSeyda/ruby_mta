@@ -7,7 +7,7 @@ class Mta
     end
 
     def lines
-        p @name
+        puts @name
     end
 end
 
@@ -19,8 +19,11 @@ class Line < Mta
     end
 
     def stops
-        p @stations
+        puts @stations
     end
+end
 
+def calculate(line_1, stop_1, line_2, stop_2)
 
 end
+
