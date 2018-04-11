@@ -13,6 +13,7 @@ if str0== "lines" && input_length == 1
     line_list
 elsif str0=="lines" && input_length != 1 
     puts "Plese provide the correct number of arguments, expecting 1, recieved #{input_length}"
+
 elsif  str0=="stops" && input_length == 2 
     if str1 == "L"
         $l_train.stops
@@ -23,8 +24,9 @@ elsif  str0=="stops" && input_length == 2
     end
 elsif str0=="stops" && input_length != 2 
     puts "Plese provide the correct number of arguments, expecting 2, recieved #{input_length}"
-elsif str0=="calculate" && input_length == 5
 
+elsif str0=="calculate" && input_length == 5
+    calculate(str1, str2, str3, str4)
 elsif str0=="calculate" && input_length != 5 
     puts "Plese provide the correct number of arguments, expecting 5, recieved #{input_length}"
 else
