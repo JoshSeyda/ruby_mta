@@ -1,5 +1,5 @@
 require_relative "structure.rb"
-
+# takes user input and converts it into an array to then isolate each element
 user_input = ARGV
 input_length = user_input.length
 str0 = user_input[0].downcase
@@ -8,7 +8,7 @@ str2 = user_input[2]
 str3 = user_input[3]
 str4 = user_input[4]
 str5 = user_input[5]
-
+# calls specific methods on input relative to element content
 if str0== "lines" && input_length == 1  
     line_list
 elsif str0=="lines" && input_length != 1 
@@ -16,15 +16,15 @@ elsif str0=="lines" && input_length != 1
 
 elsif  str0=="stops" && input_length == 2 
     if str1 == "L"
-        p $l_train.stops
+         $l_train.stops
     elsif str1 == "6"
-        p $six_train.stops
+         $six_train.stops
     elsif str1 == "N"
-        p $n_train.stops
+         $n_train.stops
     elsif str1 == "Q"
-        p $q_train.stops
+         $q_train.stops
     elsif str1 == "F"
-        p $f_train.stops
+         $f_train.stops
     end
 elsif str0=="stops" && input_length != 2 
     puts "Plese provide the correct number of arguments, expecting 2, recieved #{input_length}"
