@@ -7,7 +7,7 @@ class Mta
     end
 
     def lines
-        puts @name
+        puts name
     end
 end
 
@@ -15,7 +15,7 @@ class Line < Mta
     attr_accessor :name, :stations
 
     def initialize(name, stations)
-        super
+        super(name, stations)
     end
 
     def stops
@@ -27,3 +27,15 @@ def calculate(line_1, stop_1, line_2, stop_2)
 
 end
 
+$l_train = Line.new("L", ["8th", "6th", "Union Square", "3rd", "1st"])
+
+$six_train = Line.new("6", ["Grand Central", "33rd", "28th_lex", "23rd_lex"])
+
+$n_train = Line.new("N", ["Times Square", "34th", "28th_bdwy", "23rd_bdwy", "Union Square", "8th"])
+
+
+def line_list
+    $l_train.lines()
+    $six_train.lines()
+    $n_train.lines()
+end
